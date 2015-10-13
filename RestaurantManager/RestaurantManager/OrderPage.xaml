@@ -5,16 +5,20 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dm="using:RestaurantManager.Models"
     mc:Ignorable="d">
 
     <Page.TopAppBar>
         <AppBar>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <AppBarButton Icon="Home"  Label="Home" Click="AppBarButton_Click"/>
-                
+
             </StackPanel>
         </AppBar>
     </Page.TopAppBar>
+    <Page.DataContext>
+        <dm:DataManager/>
+    </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
   
         <Grid.RowDefinitions>
@@ -30,14 +34,14 @@
             <ColumnDefinition Width="0.25*" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Special Requests:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"
-                   HorizontalAlignment="Left" FontSize="40"/>
+                   HorizontalAlignment="Left" Style="{StaticResource TxtBk32}"/>
         <TextBlock Text="Order Items:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top"
-                   HorizontalAlignment="Left" FontSize="40"/>
+                   HorizontalAlignment="Left"  Style="{StaticResource TxtBk32}"/>
         <Button Content="Add to Order" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="48"/>
+                   HorizontalAlignment="Center" Style="{StaticResource Butn32}"/>
         <Button Content="Submit Order" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="48"/>
-        <ListView x:Name="LeftList" Grid.Column="0" Grid.Row="1"  Grid.RowSpan="3" Background="#FF1B9C8B"/>
-        <ListView x:Name="RightList" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="#FFB5CD1F" />
+                   HorizontalAlignment="Center" Style="{StaticResource Butn32}"/>
+        <ListView x:Name="LeftList" Grid.Column="0" Grid.Row="1"  Grid.RowSpan="3" ItemsSource="{Binding MenuItems}"/>
+        <ListView x:Name="RightList" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding CurrentlySelectedMenuItems}" />
     </Grid>
 </Page>

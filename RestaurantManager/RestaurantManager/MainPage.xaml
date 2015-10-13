@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -18,12 +18,13 @@
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Restaurant Manager" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Center" FontSize="56"/>
+                   HorizontalAlignment="Center" 
+                   Style="{StaticResource TxtBk32}"/>
         <TextBlock Text="Internal Test Version" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom"
-                   HorizontalAlignment="Center" />
+                   HorizontalAlignment="Center" Style="{StaticResource TxtBk18}"/>
         <Button x:Name="GoToOrders"  Content="Go to Orders View" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="48" Click="GoToOrders_Click"/>
+                   HorizontalAlignment="Center" Style="{StaticResource Butn32}" Click="GoToOrders_Click"/>
         <Button x:Name="SubmitOrder"  Content="Submit Order" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="48" Click="SubmitOrder_Click"/>
+                   HorizontalAlignment="Center" Style="{StaticResource Butn32}" Click="SubmitOrder_Click"/>
     </Grid>
 </Page>

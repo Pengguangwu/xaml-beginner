@@ -5,6 +5,7 @@
     xmlns:local="using:RestaurantManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dm="using:RestaurantManager.Models"
     mc:Ignorable="d">
     <Page.TopAppBar>
         <AppBar>
@@ -13,13 +14,16 @@
             </StackPanel>
         </AppBar>
     </Page.TopAppBar>
+    <Page.DataContext>
+        <dm:DataManager/>
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*" />
             <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
         <Button Content="Clear All Orders" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="48"/>
-        <GridView x:Name="AllOrders" Grid.Row="0" Background="#FFC3D413"/>
+                   HorizontalAlignment="Center" Style="{StaticResource Butn32}"/>
+        <GridView x:Name="AllOrders" Grid.Row="0" ItemsSource="{Binding OrderItems}"/>
     </Grid>
 </Page>
